@@ -11,6 +11,9 @@
     </script>
     <script src="/js/Chart.bundle.js" type="text/javascript">
     </script>
+    <script src="/js/Stockchart.js" type="text/javascript">
+    </script>
+
     <link rel="stylesheet" href="/css/materialize.css" type="text/css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <style type="text/css">

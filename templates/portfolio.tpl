@@ -1,11 +1,13 @@
 
 <div class="row">
-    <div class="col s2 l2">Equity</div>
-    <div class="col s8 l6">Sector Distribution</div>
+    <div class="col s2 l1">Equity</div>
+    <div class="col s8 l5">Sector Distribution</div>
+    <div class="col s8 l6">Sector Performance</div>
 </div>
 <div class="row">
     <div class="col s2 l1">{{"$%.2f"|format(equity | float)}}</div>
     <div class="col s8 l6"><canvas id="sec_dist" width="400" height="400"></canvas></div>
+    <div class="col s8 l6"><div id="sec_perf"></div></div>
 </div>
 <div class="row">
 <div class="col s8 l2">Symbol/Last Price</div>
@@ -64,6 +66,7 @@
 <script type="application/javascript">
 $(document).ready(function () {
     BC.loadOpinions($.parseJSON('{{syms}}'));
+    SC.getSectorPerformanceChart('sec_perf');
 });
 </script>
 <script>
