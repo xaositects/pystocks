@@ -1,0 +1,1 @@
+<div class="col s2 l1"><button class="btn blue" name="remove_symbol" value="{{ symbol }}"><i class="material-icons">delete</i></button></div>
