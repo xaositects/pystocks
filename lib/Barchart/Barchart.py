@@ -27,3 +27,22 @@ class Barchart:
             return str(cur_box)
         else:
             return 'No Rating'
+
+    def get_sector_perf_chart_page(self):
+        try:
+            response = requests.get('https://www.barchart.com/stocks/sectors/rankings?timeFrame=3m')
+            return response.content
+        except:
+            apache.log_error('%s' % sys.exc_info()[0], apache.APLOG_ERR)
+
+    def get_sector_perf_chart(self):
+        html = self.get_sector_perf_chart_page()
+        apache.log_error('%s' % html, apache.APLOG_ERR)
+        soup = BeautifulSoup(html, 'html.parser')
+        cht = soup.find('div', class_='bc-major-market-sectors-table-wrapper')
+        cur_cht = 'NA'
+        if cht is not None:
+            cur_cht = cht
+            return str(cur_cht)
+        else:
+            return 'NA'

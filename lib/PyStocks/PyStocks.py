@@ -12,7 +12,8 @@ from Robinhood import endpoints
 
 pystockconfig = apache.import_module('/home/rmiller/Projects/pystocks/lib/pystockconfig/pystockconfig.py')
 BarChart = apache.import_module('/home/rmiller/Projects/pystocks/lib/Barchart/Barchart.py')
-
+StockCharts = apache.import_module('/home/rmiller/Projects/pystocks/lib/Stockcharts/Stockcharts.py')
+Charts = apache.import_module('/home/rmiller/Projects/pystocks/lib/Charts/Charts.py')
 
 class PyStocks:
     tpl_path = '/home/rmiller/Projects/pystocks/templates'
@@ -81,7 +82,7 @@ class PyStocks:
         template = self.env.get_template(self.portfolio_tpl)
         output = template.render(portfolio=sos, syms=json.dumps({k: k for k in sos.keys()}), equity=self.ev,
                                  sector_counts=sectors.values(), sectors=json.dumps(sectors.keys()),
-                                 sector_colors=json.dumps(sector_colors.values()))
+                                 sector_colors=json.dumps(sector_colors.values()),sp_data=Charts.get_sp_data())
         return output
 
     @staticmethod

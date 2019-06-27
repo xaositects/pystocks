@@ -66,7 +66,7 @@
 <script type="application/javascript">
 $(document).ready(function () {
     BC.loadOpinions($.parseJSON('{{syms}}'));
-    SC.getSectorPerformanceChart('sec_perf');
+    SC.loadSectorPerformanceChart();
 });
 </script>
 <script>
